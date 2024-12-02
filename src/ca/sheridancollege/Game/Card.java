@@ -10,6 +10,11 @@ public class Card {
 
 	private int value;
 	private String face;
+        
+        
+        public Card() {
+            
+        }
 
 	/**
 	 * Students should implement this method for their specific children classes

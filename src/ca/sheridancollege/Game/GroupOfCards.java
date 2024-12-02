@@ -10,7 +10,7 @@ import java.util.*;
  * @author Paul Bonenfant Jan 2020
  */
 public class GroupOfCards {
-
+        private static GroupOfCards deck;
 	private int size;
 	/**
 	 * The group of cards, stored in an ArrayList
@@ -33,14 +33,17 @@ public class GroupOfCards {
 	 * the size of the grouping
 	 * @param size
 	 */
-	public GroupOfCards(int size) {
-		// TODO - implement GroupOfCards.GroupOfCards
-		throw new UnsupportedOperationException();
+	private GroupOfCards(int size) {
+            for (int i = 0; i < size; i++) {
+                this.cards.add(new Card());
+            }
 	}
 
-	public void initializeDeck() {
-		// TODO - implement GroupOfCards.initializeDeck
-		throw new UnsupportedOperationException();
+	public static GroupOfCards initializeDeck() {
+            if (GroupOfCards.deck == null) {
+                GroupOfCards.deck = new GroupOfCards(54);
+            }
+            return GroupOfCards.deck;
 	}
 
 }
