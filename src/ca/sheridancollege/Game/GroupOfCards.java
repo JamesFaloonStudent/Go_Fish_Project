@@ -11,37 +11,29 @@ import java.util.*;
  */
 public class GroupOfCards {
         private static GroupOfCards deck;
-	private int size;
-	/**
-	 * The group of cards, stored in an ArrayList
+	private ArrayList<Card> cards;
+        
+        /**
+	 * the size of the grouping
+	 * @param size
 	 */
-	private Collection<Card> cards;
-
-	public int getSize() {
-		return this.size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
+	private GroupOfCards(ArrayList<Card> cards) {
+            this.cards = cards;
+            
+            
 	}
 
 	public Collection<Card> getCards() {
 		return this.cards;
 	}
 
-	/**
-	 * the size of the grouping
-	 * @param size
-	 */
-	private GroupOfCards(int size) {
-            for (int i = 0; i < size; i++) {
-                this.cards.add(new Card());
-            }
-	}
+	
 
 	public static GroupOfCards initializeDeck() {
             if (GroupOfCards.deck == null) {
-                GroupOfCards.deck = new GroupOfCards(54);
+                CardFactoryAbstractLayer cardFactory = new CardFactory();
+                ArrayList<Card> cards = cardFactory.createCards();
+                GroupOfCards.deck = new GroupOfCards(cards);
             }
             return GroupOfCards.deck;
 	}

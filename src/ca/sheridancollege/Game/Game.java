@@ -61,6 +61,7 @@ public class Game {
              Game.game = Game.getInstance();
              PlayerFactoryAbstractLayer playerFactory = new PlayerFactory();
              playerFactory.createPlayers();
+             GroupOfCards.initializeDeck();
              Game.game.play();
              
             

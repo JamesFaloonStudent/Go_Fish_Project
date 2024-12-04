@@ -8,11 +8,13 @@ package ca.sheridancollege.Game;
  */
 public class Card {
 
-	private int value;
+	private String value;
 	private String face;
         
         
-        public Card() {
+        public Card(String value, String face) {
+            this.value = value;
+            this.face = face;
             
         }
 
@@ -26,7 +28,7 @@ public class Card {
 		throw new UnsupportedOperationException();
 	}
 
-	public int getValue() {
+	public String getValue() {
 		return this.value;
 	}
 
@@ -34,7 +36,7 @@ public class Card {
 	 * 
 	 * @param value
 	 */
-	public void setValue(int value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 
