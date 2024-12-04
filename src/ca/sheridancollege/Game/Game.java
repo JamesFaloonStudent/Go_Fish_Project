@@ -33,8 +33,9 @@ public class Game {
 	 * the players of the game
 	 * @param name
 	 */
-	private Game(String name, int numOfPlayers) {
-                       
+	private Game(String name, ArrayList<Player> starterPlayers) {
+            this.name = name;
+            this.players = starterPlayers;                       
 	}
         
         
@@ -44,21 +45,31 @@ public class Game {
 	 * Play the game. This might be one method or many method calls depending on your game.
 	 */
 	public void play() {
-		// TODO - implement Game.play
-		throw new UnsupportedOperationException();
+            System.out.println("Made it here");
 	}
         
         
         public static Game getInstance() {
             if (Game.game == null) {
                 Scanner input = new Scanner(System.in);
-                System.out.print("Enter number of players must be at least 2 ");
+                System.out.print("Enter number of players must be at least 2: ");
                 int numOfPlayers = input.nextInt();
                 while (numOfPlayers < 2) {
-                    System.out.print("Invalid number of players try again");
+                    System.out.print("Invalid number of players try again: ");
                     numOfPlayers = input.nextInt();
                 }
-                return new Game("Go fish", numOfPlayers);
+                ArrayList<Player> players = new ArrayList<Player>();
+                input.nextLine();
+                for (int i = 0; i < numOfPlayers; i++) {
+                    System.out.print("Enter player " + (i + 1) + " username: ");
+                    String username = input.nextLine();
+                    System.out.print("Enter player " + (i + 1) + " password: ");
+                    String password = input.nextLine();
+                    players.add(new Player(username, password));
+                }
+               
+                
+                Game.game  = new Game("Go fish", players);
             }
             
             return Game.game;

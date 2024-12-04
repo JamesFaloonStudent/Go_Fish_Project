@@ -17,7 +17,9 @@ public class Player {
 	 * A constructor that allows you to set the player's unique ID
 	 * @param name the unique ID to assign to this player.
 	 */
-	public Player() {
+	public Player(String username, String password) {
+            this.username = username;
+            this.password = password;
 	    
 	}
 
