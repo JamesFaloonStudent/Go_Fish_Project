@@ -29,6 +29,6 @@ public abstract class Validator {
 		this.password = password;
 	}
 
-	public abstract boolean validate();
+	public abstract boolean validate(String String);
 
 }

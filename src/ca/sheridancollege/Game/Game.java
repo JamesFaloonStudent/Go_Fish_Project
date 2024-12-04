@@ -33,9 +33,9 @@ public class Game {
 	 * the players of the game
 	 * @param name
 	 */
-	private Game(String name, ArrayList<Player> starterPlayers) {
+	private Game(String name, ArrayList<Player> players) {
             this.name = name;
-            this.players = starterPlayers;                       
+            this.players = players;                       
 	}
         
         
@@ -51,33 +51,16 @@ public class Game {
         
         public static Game getInstance() {
             if (Game.game == null) {
-                Scanner input = new Scanner(System.in);
-                System.out.print("Enter number of players must be at least 2: ");
-                int numOfPlayers = input.nextInt();
-                while (numOfPlayers < 2) {
-                    System.out.print("Invalid number of players try again: ");
-                    numOfPlayers = input.nextInt();
-                }
-                ArrayList<Player> players = new ArrayList<Player>();
-                input.nextLine();
-                for (int i = 0; i < numOfPlayers; i++) {
-                    System.out.print("Enter player " + (i + 1) + " username: ");
-                    String username = input.nextLine();
-                    System.out.print("Enter player " + (i + 1) + " password: ");
-                    String password = input.nextLine();
-                    players.add(new Player(username, password));
-                }
-               
-                
-                Game.game  = new Game("Go fish", players);
-            }
-            
+                Game.game  = new Game("Go fish", new ArrayList<Player>());
+            }            
             return Game.game;
         }
         
         
          public static void main(String[] args) {
              Game.game = Game.getInstance();
+             PlayerFactoryAbstractLayer playerFactory = new PlayerFactory();
+             playerFactory.createPlayers();
              Game.game.play();
              
             
