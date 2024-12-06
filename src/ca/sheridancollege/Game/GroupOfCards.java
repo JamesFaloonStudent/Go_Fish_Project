@@ -23,9 +23,20 @@ public class GroupOfCards {
             
 	}
 
-	public Collection<Card> getCards() {
+	public ArrayList<Card> getCards() {
 		return this.cards;
 	}
+        
+        public void deal(int number, Player player) {
+            for (int i =0; i < number; i++) {
+                if (!this.getCards().isEmpty())  {
+                    player.getHand().add(this.getCards().remove(this.getCards().size() -1));
+                    
+                }
+            }
+            
+            
+        }
 
 	
 
@@ -33,6 +44,7 @@ public class GroupOfCards {
             if (GroupOfCards.deck == null) {
                 CardFactoryAbstractLayer cardFactory = new CardFactory();
                 ArrayList<Card> cards = cardFactory.createCards();
+                cards = Shuffle.shuffle(cards);
                 GroupOfCards.deck = new GroupOfCards(cards);
             }
             return GroupOfCards.deck;

@@ -1,5 +1,5 @@
 package ca.sheridancollege.Game;
-
+import java.util.ArrayList;
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  * 
@@ -11,7 +11,7 @@ public class Player {
 	private String username;
 	private String password;
 	private int score;
-	private Card[] hand;
+	private ArrayList<Card> hand;
 
 	/**
 	 * A constructor that allows you to set the player's unique ID
@@ -20,6 +20,8 @@ public class Player {
 	public Player(String username, String password) {
             this.username = username;
             this.password = password;
+            this.score = 0;
+            this.hand = new ArrayList<Card>();
 	    
 	}
 
@@ -68,7 +70,7 @@ public class Player {
 		this.score = score;
 	}
 
-	public Card[] getHand() {
+	public ArrayList<Card> getHand() {
 		return this.hand;
 	}
 
@@ -76,7 +78,7 @@ public class Player {
 	 * 
 	 * @param hand
 	 */
-	public void setHand(Card[] hand) {
+	public void setHand(ArrayList<Card> hand) {
 		this.hand = hand;
 	}
 

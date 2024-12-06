@@ -45,7 +45,8 @@ public class Game {
 	 * Play the game. This might be one method or many method calls depending on your game.
 	 */
 	public void play() {
-            System.out.println("Made it here");
+            
+            
 	}
         
         
@@ -60,8 +61,8 @@ public class Game {
          public static void main(String[] args) {
              Game.game = Game.getInstance();
              PlayerFactoryAbstractLayer playerFactory = new PlayerFactory();
-             playerFactory.createPlayers();
-             GroupOfCards.initializeDeck();
+             ArrayList<Card> deck = GroupOfCards.initializeDeck().getCards();
+             ArrayList<Player> players = playerFactory.createPlayers();            
              Game.game.play();
              
             

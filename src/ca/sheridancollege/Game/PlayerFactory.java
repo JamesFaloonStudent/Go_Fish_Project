@@ -36,7 +36,7 @@ public class PlayerFactory extends PlayerFactoryAbstractLayer {
             password = input.nextLine();              
           } 
           players.add(new Player(username, password));
-          
+          GroupOfCards.initializeDeck().deal(5, players.get(i));
         }
         return players;
       }

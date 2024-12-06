@@ -1,12 +1,14 @@
 package ca.sheridancollege.Game;
 
+import java.util.Collections;
+import java.util.ArrayList;
 public class Shuffle {
 
 	private Card[] deck;
 
-	public void shuffle() {
-		// TODO - implement Shuffle.shuffle
-		throw new UnsupportedOperationException();
+	public static ArrayList<Card> shuffle(ArrayList<Card> cards) {
+            Collections.shuffle(cards);
+            return cards;
 	}
 
 	public Card[] getDeck() {

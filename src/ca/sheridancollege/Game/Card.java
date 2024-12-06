@@ -24,8 +24,7 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		// TODO - implement Card.toString
-		throw new UnsupportedOperationException();
+            return this.getValue()+ " of " + this.getFace();
 	}
 
 	public String getValue() {
@@ -51,5 +50,8 @@ public class Card {
 	public void setFace(String face) {
 		this.face = face;
 	}
+        
+       
+       
 
 }
