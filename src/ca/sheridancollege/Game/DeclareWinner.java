@@ -4,7 +4,7 @@ public class DeclareWinner {
 
 	private Player[] Players;
 
-	public void checkWinner() {
+	public static void checkWinner() {
 		// TODO - implement DeclareWinner.checkWinner
 		throw new UnsupportedOperationException();
 	}
